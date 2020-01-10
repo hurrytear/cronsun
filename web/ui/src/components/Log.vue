@@ -141,9 +141,9 @@ export default {
     buildQuery(){
       var params = [];
       if (this.names) params.push('names='+this.names);
-      if (!this.$store.getters.showWithHostname && this.ids) params.push('ids='+this.ids);
+      if (this.ids) params.push('ids='+this.ids);
       if (this.$store.getters.showWithHostname && this.hostnames) params.push('hostnames='+this.hostnames);
-      if (this.ips) params.push('ips='+this.ips);
+      if (!this.$store.getters.showWithHostname && this.ips) params.push('ips='+this.ips);
       if (this.begin) params.push('begin='+this.begin);
       if (this.end) params.push('end='+this.end);
       if (this.failedOnly) params.push('failedOnly=true');
